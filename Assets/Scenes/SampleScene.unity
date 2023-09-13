@@ -1372,9 +1372,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554544089}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.43800008, y: 0.007999897, z: 0.02699995}
-  m_LocalScale: {x: 0.825, y: 0.9, z: 0.05}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.02699995, y: 0.007999897, z: 0.43799996}
+  m_LocalScale: {x: 0.82499987, y: 0.9, z: 0.049999993}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 340332348}
@@ -3829,7 +3829,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880293476}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.3980004, y: 1.695, z: -2.1740003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3863,8 +3863,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: 90
-    max: 180
+    min: 0
+    max: 150
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
