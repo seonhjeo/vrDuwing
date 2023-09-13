@@ -218,12 +218,12 @@ namespace OVRTouchSample
             m_animator.SetFloat(m_animParamIndexFlex, flex);
 
             // Point
-            bool canPoint = !grabbing || grabPose.AllowPointing;
+            bool canPoint = grabPose.AllowPointing || !grabbing;
             float point = canPoint ? m_pointBlend : 0.0f;
             m_animator.SetLayerWeight(m_animLayerIndexPoint, point);
 
             // Thumbs up
-            bool canThumbsUp = !grabbing || grabPose.AllowThumbsUp;
+            bool canThumbsUp = grabPose.AllowThumbsUp || !grabbing;
             float thumbsUp = canThumbsUp ? m_thumbsUpBlend : 0.0f;
             m_animator.SetLayerWeight(m_animLayerIndexThumb, thumbsUp);
 
