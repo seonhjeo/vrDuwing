@@ -19,7 +19,7 @@ public class Interactable_safety : Interactable
     override public void Interact()
     {
 
-        if(QuestManager.instance.safeCount>=3)
+        if(QuestManager.instance.safeCount>=2)
         {
             Destroy(gameObject);
 
@@ -27,6 +27,9 @@ public class Interactable_safety : Interactable
 
             //안전확보
             QuestManager.instance.bSafe=true;
+
+            //플레이
+            QuestManager.instance.PlayInfo(1);
         }
         else
         {

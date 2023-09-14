@@ -12,6 +12,9 @@ public class Interactable_newfilter : Interactable
 
     public bool rot;
 
+    public GameObject beforOil;
+    public GameObject afterOil;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +48,15 @@ public class Interactable_newfilter : Interactable
                     rb.isKinematic = true;
                     GetComponent<OVRGrabbable>().enabled = false;
 
-                    load();
                     QuestManager.instance.questProgress = 3;
                     break;
                 }
             }
+
+            QuestManager.instance.cvs_leftright3.SetActive(true);
+            lhand.SetActive(true);
+            rhand.SetActive(true);
+            //load();
         }
     }
 
@@ -93,5 +100,18 @@ public class Interactable_newfilter : Interactable
 
         QuestManager.instance.Lhand.SetActive(true);
         QuestManager.instance.Rhand.SetActive(true);
+
+        if(QuestManager.instance.bOiled==false)
+        {
+            QuestManager.instance.PlayAlarm(1);
+        }
+
+        QuestManager.instance.PlayInfo(4);
+    }
+
+    public void ChangeColor()
+    {
+        beforOil.SetActive(false);
+        afterOil.SetActive(true);
     }
 }

@@ -134,6 +134,8 @@ public class OVRGrabbable : MonoBehaviour
     /// </summary>
     virtual public void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
     {
+        if (enabled == false) return;
+
         Rigidbody rb = gameObject.GetComponent<Rigidbody>();
         rb.isKinematic = m_grabbedKinematic;
         rb.velocity = linearVelocity;

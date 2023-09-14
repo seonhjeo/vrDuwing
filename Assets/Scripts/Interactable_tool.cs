@@ -30,8 +30,11 @@ public class Interactable_tool : Interactable
             {
                 if(col.GetComponent<Interactable_oldfilter>()!=null)
                 {
-                    col.GetComponent<Interactable_oldfilter>().Unlock();
-                    QuestManager.instance.questProgress = 1;
+                    QuestManager.instance.cvs_leftright1.SetActive(true);
+                    col.GetComponent<Interactable_oldfilter>().tool.SetActive(true);
+
+                    //col.GetComponent<Interactable_oldfilter>().Unlock();
+                    //QuestManager.instance.questProgress = 1;
                     break;
                 }
             }
@@ -46,8 +49,11 @@ public class Interactable_tool : Interactable
             {
                 if (col.GetComponent<Interactable_newfilter>() != null)
                 {
-                    col.GetComponent<Interactable_newfilter>().locking();
-                    QuestManager.instance.GameClear();
+                    QuestManager.instance.cvs_leftright4.SetActive(true);
+                    col.GetComponent<Interactable_newfilter>().tool.SetActive(true);
+
+                    //col.GetComponent<Interactable_newfilter>().locking();
+                    //QuestManager.instance.GameClear();
                     break;
                 }
             }
