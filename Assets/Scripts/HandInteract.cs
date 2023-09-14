@@ -46,12 +46,32 @@ public class HandInteract : MonoBehaviour
                 {
                     if(col.GetComponent<Interactable_oldfilter>().rot==false)
                     {
-                        col.GetComponent<Interactable_oldfilter>().Unload();
+                        QuestManager.instance.cvs_leftright2.SetActive(true);
+                        col.GetComponent<Interactable_oldfilter>().lhand.SetActive(true);
+                        col.GetComponent<Interactable_oldfilter>().rhand.SetActive(true);
+
+                        //col.GetComponent<Interactable_oldfilter>().Unload();
                     }
                     break;
                 }
             }
         }
+        else if (QuestManager.instance.questProgress == 2)
+        {
+            Collider[] colliders =
+                   Physics.OverlapSphere(transform.position, 0.3f);
+
+            foreach (Collider col in colliders)
+            {
+                if (col.transform == QuestManager.instance.filterTop)
+                {
+                    col.transform.parent.GetComponent<Interactable_newfilter>().ChangeColor();
+                    QuestManager.instance.bOiled = true;
+                    break;
+                }
+            }
+        }
+
         /*
         else if (grabber.grabbedObject == null && QuestManager.instance.questProgress == 3)
         {
@@ -73,9 +93,15 @@ public class HandInteract : MonoBehaviour
             }
         }
         */
+
     }
 
     void Grab()
+    {
+        Invoke("grabact",0.1f);
+    }
+
+    void grabact()
     {
         if (grabber.grabbedObject != null)
         {

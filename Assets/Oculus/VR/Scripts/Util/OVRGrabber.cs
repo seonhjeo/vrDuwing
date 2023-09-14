@@ -237,6 +237,7 @@ public class OVRGrabber : MonoBehaviour
 
     protected virtual void GrabBegin()
     {
+
         float closestMagSq = float.MaxValue;
         OVRGrabbable closestGrabbable = null;
         Collider closestGrabbableCollider = null;
@@ -336,6 +337,11 @@ public class OVRGrabber : MonoBehaviour
             return;
         }
 
+        if (m_grabbedObj.GetComponent<OVRGrabbable>().enabled == false)
+        {
+            return;
+        }
+
         Rigidbody grabbedRigidbody = m_grabbedObj.grabbedRigidbody;
         Vector3 grabbablePosition = pos + rot * m_grabbedObjectPosOff;
         Quaternion grabbableRotation = rot * m_grabbedObjectRotOff;
@@ -382,6 +388,11 @@ public class OVRGrabber : MonoBehaviour
 
     protected void GrabbableRelease(Vector3 linearVelocity, Vector3 angularVelocity)
     {
+        //if (m_grabbedObj.enabled == false)
+        {
+        //    return;
+        }
+
         m_grabbedObj.GrabEnd(linearVelocity, angularVelocity);
         if (m_parentHeldObject) m_grabbedObj.transform.parent = null;
         m_grabbedObj = null;

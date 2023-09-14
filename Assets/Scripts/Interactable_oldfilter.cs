@@ -38,8 +38,6 @@ public class Interactable_oldfilter : Interactable
 
     public void Unload()
     {
-        QuestManager.instance.questProgress = 2;
-
         lhand.SetActive(true);
         rhand.SetActive(true);
 
@@ -57,6 +55,8 @@ public class Interactable_oldfilter : Interactable
 
         QuestManager.instance.Lhand.SetActive(true);
         QuestManager.instance.Rhand.SetActive(true);
+
+        QuestManager.instance.PlayInfo(2);
     }
 
     IEnumerator RotateFilter2(float time)
@@ -72,5 +72,7 @@ public class Interactable_oldfilter : Interactable
 
         QuestManager.instance.Lhand.SetActive(true);
         QuestManager.instance.Rhand.SetActive(true);
+
+        QuestManager.instance.PlayInfo(3);
     }
 }
