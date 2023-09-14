@@ -20,6 +20,12 @@ public class HandInteract : MonoBehaviour
         {
             Interact();
         }
+
+        if (VRInput.GetDown(VRInput.Button.HandTrigger, controller))
+        {
+            Grab();
+        }
+
     }
 
     void Interact()
@@ -29,6 +35,53 @@ public class HandInteract : MonoBehaviour
             grabber.grabbedObject.GetComponent<Interactable>().Interact();
         }
 
-        Debug.Log(controller);
+        if(grabber.grabbedObject==null && QuestManager.instance.questProgress==1)
+        {
+            Collider[] colliders =
+                                 Physics.OverlapSphere(transform.position, 0.2f);
+
+            foreach (Collider col in colliders)
+            {
+                if (col.GetComponent<Interactable_oldfilter>() != null)
+                {
+                    if(col.GetComponent<Interactable_oldfilter>().rot==false)
+                    {
+                        col.GetComponent<Interactable_oldfilter>().Unload();
+                    }
+                    break;
+                }
+            }
+        }
+        /*
+        else if (grabber.grabbedObject == null && QuestManager.instance.questProgress == 3)
+        {
+            Collider[] colliders =
+                     Physics.OverlapSphere(transform.position, 0.2f);
+
+            foreach (Collider col in colliders)
+            {
+                if (col.GetComponent<Interactable_newfilter>() != null)
+                {
+                    if (col.GetComponent<Interactable_newfilter>().rot == false)
+                    {
+                        col.GetComponent<Interactable_newfilter>().load();
+                    }
+
+                    QuestManager.instance.questProgress = 4;
+                    break;
+                }
+            }
+        }
+        */
     }
+
+    void Grab()
+    {
+        if (grabber.grabbedObject != null)
+        {
+            grabber.grabbedObject.GetComponent<Interactable>().Grabbed();
+            grabber.grabbedObject.GetComponent<Interactable>().grabber = grabber;
+        }
+    }
+
 }
