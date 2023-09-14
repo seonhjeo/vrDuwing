@@ -122,6 +122,8 @@ public class OVRGrabbable : MonoBehaviour
     /// </summary>
     virtual public void GrabBegin(OVRGrabber hand, Collider grabPoint)
     {
+        if (enabled == false) return;
+
         m_grabbedBy = hand;
         m_grabbedCollider = grabPoint;
         gameObject.GetComponent<Rigidbody>().isKinematic = true;

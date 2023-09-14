@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public string Name;
+
+    public OVRGrabber grabber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,11 @@ public class Interactable : MonoBehaviour
     }
 
     virtual public void Interact()
+    {
+
+    }
+
+    virtual public void Grabbed()
     {
 
     }
